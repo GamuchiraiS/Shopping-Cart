@@ -1,0 +1,156 @@
+<!DOCTYPE html> 
+<html > 
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+<script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+<style>
+</style>
+	<title> Shopping Bag </title>
+	<link rel = "stylesheet" href = "cart-style.css">
+</head>
+<body>
+	<div class="shopping-cart">
+		<!-- Title -->
+		<div id = "heading" class="title"> 
+			Shopping Bag
+			<span>
+				<input id = "click-btn" type = "button" value = "Click Me!" onclick="moveRight();">
+			</span>
+		</div>
+
+	<!-- Product #1 -->
+	<div class="item">
+		<div class="buttons">
+			<span class="delete-btn"></span>
+			<span class="like-btn">
+			</span>
+		</div>
+
+	<div class="image">
+		<img src="images/common-projects.jpeg" alt="" />
+		</div>
+	<div class="description">
+		<span>Common Projects</span>
+		<span>Bball High</span>
+		<span>White</span>
+		</div>
+
+	<div class="quantity">
+		<button class="plus-btn" type="button" name="button">
+			<img src="images/plus.svg" alt="" />
+		</button>
+		<input type="text" name="name" value="1">
+		<button class="minus-btn" type="button" name="button">
+			<img src="images/minus.svg" alt="" />
+		</button>
+		</div>
+
+	<div class="total-price">$549</div>
+		</div>
+
+	<!-- Product #2 -->
+	<div class="item">
+		<div class="buttons">
+			<span class="delete-btn"></span>
+			<span class="like-btn">
+			</span>
+		</div>
+	<div class="image">
+		<img src="images/maison-sneakers.jpg" alt=""/>
+		</div>
+	<div class="description">
+		<span>Maison Margiela</span>
+		<span>Future Sneakers</span>
+		<span>White</span>
+		</div>
+	<div class="quantity">
+		<button class="plus-btn" type="button" name="button">
+			<img src="images/plus.svg" alt="" />
+		</button>
+		<input type="text" name="name" value="1">
+			<button class="minus-btn" type="button" name="button">
+				<img src="images/minus.svg" alt="" />
+			</button>
+		</div>
+	<div class="total-price">$870</div>
+		</div>
+
+	<!-- Product #3 -->
+	<div class = "item">
+		<div class = "buttons">
+			<span class = "delete-btn"></span>
+			<span class = "like-btn"></span>
+		</div>
+	<div class = "image">
+		<img src = "images/nike-jacket.jpg" alt = ""/>
+		</div>
+		<div class = "description">
+		<span> Nike </span>
+		<span>Windrunner</span>
+		<span>Black</span>
+	</div>
+	<div class = "quantity">
+		<button class="plus-btn" type="button" name="button">
+			<img src="images/plus.svg" alt="" />
+		</button>
+		<input type="text" name="name" value="1">
+			<button class="minus-btn" type="button" name="button">
+				<img src="images/minus.svg" alt="" />
+			</button>
+		</div>
+	<div class="total-price">$200</div>
+		</div> 
+
+	<script type="text/javascript">
+      $('.minus-btn').on('click', function(e) {
+    		e.preventDefault();
+    		var $this = $(this);
+    		var $input = $this.closest('div').find('input');
+    		var value = parseInt($input.val());
+
+    		if (value > 1) {
+    			value = value - 1;
+    		} else {
+    			value = 0;
+    		}
+
+        $input.val(value);
+
+    	});
+
+    	$('.plus-btn').on('click', function(e) {
+    		e.preventDefault();
+    		var $this = $(this);
+    		var $input = $this.closest('div').find('input');
+    		var value = parseInt($input.val());
+
+    		if (value < 100) {
+      		value = value + 1;
+    		} else {
+    			value =100;
+    		}
+
+    		$input.val(value);
+    	});
+
+      $('.like-btn').on('click', function() {
+        $(this).toggleClass('is-active');
+      });
+      var imgObj = null;
+
+      function init(){
+      	imgObj = document.getElementById('heading');
+      	imgObj.style.position = 'relative';
+      	imgObj.style.left = '0px';
+      }
+
+      function moveRight(){
+      	imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+      }
+
+      window.onload = init();
+    </script>
+
+</body>	
+</html>	
